@@ -7,34 +7,33 @@ const Login = (props) => {
 	const api = useApi();
 
 	const onLoginClick = () => {
-		//alert(`${email}  ${password}`);
+		//alert(`${email} ve ${password}`)
 
 		const postData = {
 			email,
 			password,
 		};
-
-		console.log("postDATA", postData);
+		console.log(">> POST DATA", postData);
 
 		api
 			.post("auth/login", postData)
 			.then((response) => {
-				console.log("reponse", response);
-				console.log("TOKEN", response.data.data.token);
+				console.log(">> RES", response);
+				console.log(">> TOKEN", response.data.data.token);
 
 				if (response.data.status === "success") {
-					localStorage.setItem("TOKEN", response.data.data.token);
+					localStorage.setItem("token", response.data.data.token);
 					window.location.href = "/#";
+
 					setTimeout(() => {
 						window.location.reload();
 					}, 111);
 				} else {
-					alert("EPOSTA VEYA ŞİFRE HATALI!!!");
+					alert("Hatalı eposta veya şifre girildi.");
 				}
 			})
-
 			.catch((err) => {
-				console.log("error", err);
+				console.log(">> ERR", err);
 				alert(err.response.data.errorMessage);
 			});
 	};

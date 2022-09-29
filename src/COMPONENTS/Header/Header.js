@@ -11,13 +11,13 @@ const Header = () => {
 
 		if (token) {
 			api
-				.get("user/login")
+				.get("user/appData")
 				.then((response) => {
-					console.log("++response", response);
+					console.log(">> APP DATA RESP", response);
 					setUser(response.data.data.user);
 				})
-				.catch((error) => {
-					console.log("++error", error);
+				.catch((err) => {
+					console.log(">> ERR", err);
 				});
 		}
 	}, []);
@@ -67,7 +67,6 @@ const Header = () => {
 						>
 							Log Out
 						</button>
-						969802
 					</nav>
 				) : (
 					<nav className="d-inline-flex mt-2 mt-md-0 ms-md-auto">
