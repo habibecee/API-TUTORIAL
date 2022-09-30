@@ -7,19 +7,9 @@ import Home from "./PAGES/HOME/Home";
 import Login from "./PAGES/LOGIN/Login";
 import Register from "./PAGES/REGISTER/Register";
 import useApi from "./HOOKS/UseApi";
+import CategoryDetail from "./PAGES/CATEGORY_DETAIL/CategoryDetail";
 
 function App() {
-	// const api = useApi();
-
-	// api
-	// 	.get("user/appData")
-	// 	.then((response) => {
-	// 		console.log("APP DATA", response);
-	// 	})
-	// 	.catch((error) => {
-	// 		console.log("ERROR", error);
-	// 	});
-
 	return (
 		<div className="container py-3">
 			<Header />
@@ -28,6 +18,7 @@ function App() {
 					<Route index element={<Home />}></Route>
 					<Route path="login" element={<Login />}></Route>
 					<Route path="register" element={<Register />}></Route>
+					<Route path="category/:slug" element={<CategoryDetail />}></Route>
 				</Routes>
 			</HashRouter>
 			<Footer />

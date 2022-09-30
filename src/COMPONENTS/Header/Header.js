@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import logo from "../Header/logo.png";
+import logo from "../../ASSETS/logo.png";
 import useApi from "../../HOOKS/UseApi";
 
 const Header = () => {
@@ -53,7 +53,7 @@ const Header = () => {
 						className="me-3"
 						alt="logo"
 					></img>
-					<span className="fs-4">Api Tutorial</span>
+					<span className="siteName fs-4">Api Tutorial</span>
 				</a>
 
 				{user ? (

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import useApi from "../../HOOKS/UseApi";
+import Category from "./companents/Category";
 
 const Home = (props) => {
 	const [categories, setCategories] = useState([]);
@@ -28,30 +29,7 @@ const Home = (props) => {
 			</div>
 			<div className="row row-cols-1 row-cols-md-3 mb-3 text-center">
 				{categories?.map((category) => {
-					return (
-						<div className="col">
-							<div
-								className="card mb-4 rounded-3 shadow-sm border-primary"
-								style={{
-									width: "250px",
-									height: "300px",
-									display: "flex",
-									alignItems: "center",
-									justifyContent: "space-around",
-								}}
-							>
-								<div
-									className="card-header py-3 text-white bg-primary border-primary"
-									style={{ width: "100%", height: "50px" }}
-								>
-									<h4 className="my-0 fw-normal">{category.name} </h4>
-								</div>
-								<div className="card-body mt-2">
-									<img src={category.image} style={{ width: "100%" }} />
-								</div>
-							</div>
-						</div>
-					);
+					return <Category key={category.id} categoryProp={category} />;
 				})}
 			</div>
 

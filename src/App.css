@@ -37,12 +37,53 @@
 	}
 } */
 
+@import url("https://fonts.googleapis.com/css2?family=Handlee&display=swap");
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-family: "Handlee", cursive !important;
 }
 
 body {
-	background-color: rgba(124, 146, 146, 0.813);
+	background-color: rgba(118, 146, 166, 0.61);
+}
+
+.siteName {
+	color: #d5d1f4;
+	text-shadow: 0 0 7px #2b2b2a, 0 0 7px #1a1a1b;
+	font-size: 30px !important;
+}
+
+.btn-primary {
+	background-color: #7579e7 !important;
+	border: #7579e7 !important ;
+	transition: 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+	box-shadow: 0 0 5px 5px #4c4f97;
+}
+
+.bg-warning {
+	background-color: #b2d5d5 !important;
+	transition: 0.5s ease-in-out !important;
+}
+
+.bg-warning:hover {
+	background-color: #a4f8c4 !important;
+}
+
+.border-warning {
+	border: #b2d5d5 !important;
+}
+
+.card {
+	background-color: #a6c1c1 !important;
+	transition: 0.5s ease-in-out !important;
+}
+
+.card:hover {
+	background-color: #83f7af !important;
 }

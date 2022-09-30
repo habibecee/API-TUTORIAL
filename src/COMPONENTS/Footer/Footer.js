@@ -1,5 +1,5 @@
 import React from "react";
-import BootstrapLogo from "../Footer/bootstrap-logo.svg";
+import logo from "../../ASSETS/logo.png";
 
 const Footer = (props) => {
 	return (
@@ -8,10 +8,9 @@ const Footer = (props) => {
 				<div className="col-12 col-md">
 					<img
 						className="mb-2"
-						src={BootstrapLogo}
+						src={logo}
 						alt=""
-						width="24"
-						height="19"
+						style={{ width: "40px", height: "40px", borderRadius: "50%" }}
 					/>
 					<small className="d-block mb-3 text-muted">© 2017–2021</small>
 				</div>
