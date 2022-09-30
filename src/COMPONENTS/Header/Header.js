@@ -42,7 +42,7 @@ const Header = () => {
 
 	return (
 		<header>
-			<div className="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+			<div className="headerr d-flex flex-column flex-md-row align-items-center pb-4 mb-4 ">
 				<a
 					href="#/"
 					className="d-flex align-items-center text-dark text-decoration-none"
@@ -50,7 +50,7 @@ const Header = () => {
 					<img
 						src={logo}
 						style={{ borderRadius: "50%", width: "80px", height: "80px" }}
-						className="me-3"
+						className="logoImg me-3"
 						alt="logo"
 					></img>
 					<span className="siteName fs-4">Api Tutorial</span>

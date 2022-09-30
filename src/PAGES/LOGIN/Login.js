@@ -40,7 +40,7 @@ const Login = (props) => {
 	return (
 		<div>
 			<div className="pricing-header p-3 pb-md-4 mx-auto text-center">
-				<h1 className="display-4 fw-normal"> LOG IN </h1>
+				<h1 className="pageText display-4 fw-normal"> LOG IN </h1>
 				<p className="fs-5 text-muted">
 					HI! WELCOME TO API TUTORIAL LOG IN PAGE. <br /> PLEASE ENTER YOUR
 					ACCOUNTS' INFORMATION.
@@ -86,7 +86,7 @@ const Login = (props) => {
 				<div style={{ marginLeft: "590px" }} className="">
 					<button
 						type="button"
-						className="btn btn-primary"
+						className="loginBtn btn btn-primary"
 						onClick={onLoginClick}
 					>
 						LOG IN

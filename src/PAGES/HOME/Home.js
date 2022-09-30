@@ -21,11 +21,8 @@ const Home = (props) => {
 	return (
 		<div>
 			<div className="pricing-header p-3 pb-md-4 mx-auto text-center">
-				<h1 className="display-4 fw-normal">HOME</h1>
-				<p className="fs-5 text-muted">
-					HI! WELCOME TO API TUTORIAL. <br /> PLEASE LOG IN FIRST TO PERFORM ON
-					THE TRANSACTIONS
-				</p>
+				<h1 className="pageText display-4 fw-normal">HOME</h1>
+				<p className="fs-5 text-muted">HI! WELCOME TO API TUTORIAL. </p>
 			</div>
 			<div className="row row-cols-1 row-cols-md-3 mb-3 text-center">
 				{categories?.map((category) => {
@@ -51,13 +48,13 @@ const Home = (props) => {
 								Public
 							</th>
 							<td>
-								<i className="fa-solid fa-check"></i>
+								<i className="fa-sharp fa-solid fa-scarecrow"></i>
 							</td>
 							<td>
-								<i className="fa-solid fa-check"></i>
+								<i className="fa-sharp fa-solid fa-scarecrow"></i>
 							</td>
 							<td>
-								<i className="fa-solid fa-check"></i>
+								<i className="fa-sharp fa-solid fa-scarecrow"></i>
 							</td>
 						</tr>
 						<tr>
@@ -66,10 +63,10 @@ const Home = (props) => {
 							</th>
 							<td></td>
 							<td>
-								<i className="fa-solid fa-check"></i>
+								<i className="fa-sharp fa-solid fa-scarecrow"></i>
 							</td>
 							<td>
-								<i className="fa-solid fa-check"></i>
+								<i className="fa-sharp fa-solid fa-scarecrow"></i>
 							</td>
 						</tr>
 					</tbody>
@@ -80,13 +77,13 @@ const Home = (props) => {
 								Permissions
 							</th>
 							<td>
-								<i className="fa-solid fa-check"></i>
+								<i className="fa-sharp fa-solid fa-scarecrow"></i>
 							</td>
 							<td>
-								<i className="fa-solid fa-check"></i>
+								<i className="fa-sharp fa-solid fa-scarecrow"></i>
 							</td>
 							<td>
-								<i className="fa-solid fa-check"></i>
+								<i className="fa-sharp fa-solid fa-scarecrow"></i>
 							</td>
 						</tr>
 						<tr>
@@ -95,10 +92,10 @@ const Home = (props) => {
 							</th>
 							<td></td>
 							<td>
-								<i className="fa-solid fa-check"></i>
+								<i className="fa-sharp fa-solid fa-scarecrow"></i>
 							</td>
 							<td>
-								<i className="fa-solid fa-check"></i>
+								<i className="fa-sharp fa-solid fa-scarecrow"></i>
 							</td>
 						</tr>
 						<tr>
@@ -107,10 +104,10 @@ const Home = (props) => {
 							</th>
 							<td></td>
 							<td>
-								<i className="fa-solid fa-check"></i>
+								<i className="fa-sharp fa-solid fa-scarecrow"></i>
 							</td>
 							<td>
-								<i className="fa-solid fa-check"></i>
+								<i className="fa-sharp fa-solid fa-scarecrow"></i>
 							</td>
 						</tr>
 						<tr>
@@ -120,7 +117,7 @@ const Home = (props) => {
 							<td></td>
 							<td></td>
 							<td>
-								<i className="fa-solid fa-check"></i>
+								<i className="fa-sharp fa-solid fa-scarecrow"></i>
 							</td>
 						</tr>
 					</tbody>

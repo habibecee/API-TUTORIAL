@@ -43,7 +43,10 @@ const CategoryDetail = (props) => {
 				) : (
 					<div>
 						<div className="pricing-header p-3 pb-md-4 mx-auto text-center">
-							<h1 className="display-4 fw-normal"> CATEGORY'S DETAILS </h1>
+							<h1 className="pageText display-4 fw-normal">
+								{" "}
+								CATEGORY'S DETAILS{" "}
+							</h1>
 							<p className="fs-5 text-muted">{`THERE IS THE CATEGORY OF ${categoryDetails.name} DETAILS.`}</p>
 						</div>
 						<div className="row row-cols-1 row-cols-md-3 mb-3 text-center">

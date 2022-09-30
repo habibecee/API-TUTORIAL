@@ -26,15 +26,9 @@ const Category = (props) => {
 				>
 					<a
 						href={"#/category/" + props.categoryProp.slug}
-						className="my-0 fw-normal text-decoration-none"
-						style={{
-							color: "#7027A0",
-							textAlign: "center",
-							fontSize: "20px",
-							textShadow: "0 0 5px #F1F1F1, 0 0 5px #64DFDF",
-						}}
+						className="catName my-0 fw-normal text-decoration-none"
 					>
-						{props.categoryProp.name}{" "}
+						<b> {props.categoryProp.name} </b>
 					</a>
 				</div>
 				<div className="card-body mt-2">
@@ -45,7 +39,7 @@ const Category = (props) => {
 							height: "200px",
 							padding: "5px 0",
 							marginBottom: "5px",
-							boxShadow: "0 0 3px 5px #2C3639",
+							boxShadow: "0 0 3px 3px #2C3639",
 						}}
 					/>
 				</div>
