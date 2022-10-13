@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import logo from "../../ASSETS/logo.png";
 import useApi from "../../HOOKS/UseApi";
+import { connect } from "react-redux";
 
-const Header = () => {
+const Header = (props) => {
 	const api = useApi();
 	const [user, setUser] = useState(null);
 
@@ -55,7 +56,9 @@ const Header = () => {
 					></img>
 					<span className="siteName fs-4">Api Tutorial</span>
 				</a>
-
+				<div className="d-flex flex-column align-items-center justify-content-center ms-5 mt-3 mb-2">
+					<h5>TOKEN: {props.AuthState.token}</h5>
+				</div>
 				{user ? (
 					<nav className="d-inline-flex mt-2 mt-md-0 ms-md-auto">
 						<strong className="btn btn-primary me-3 py-2">
@@ -83,4 +86,11 @@ const Header = () => {
 	);
 };
 
-export default Header;
+const mapStateToPropsFunc = (state) => {
+	console.log("HEADER MAP STATE", state);
+	return {
+		...state,
+	};
+};
+
+export default connect(mapStateToPropsFunc)(Header);
