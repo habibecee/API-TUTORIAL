@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import useApi from "../../HOOKS/UseApi";
 import Category from "./companents/Category";
 import { useDispatch, connect } from "react-redux";
-import { setToken } from "../../STORE/REDUCERS/AuthReducer/AuthReducer";
 
 const Home = (props) => {
 	const [categories, setCategories] = useState([]);
@@ -23,36 +22,13 @@ const Home = (props) => {
 			});
 	}, []);
 
-	const onChange = (event) => {
-		setToken(dispatch, event.target.value);
-	};
-
 	return (
 		<div>
 			<div className="pricing-header p-3 pb-md-4 mx-auto text-center">
 				<h1 className="pageText display-4 fw-normal">HOME</h1>
 				<p className="fs-5 text-muted">HI! WELCOME TO API TUTORIAL. </p>
 			</div>
-			<div className="mb-5 me-3 d-flex align-items-center justify-content-center ">
-				<input
-					type="text"
-					onChange={onChange}
-					style={{
-						width: "300px",
-						borderRadius: "15px",
-						boxShadow: "0 0 8px 5px #594545",
-						backgroundColor: "#D7C0AE",
-						color: "#000",
-						padding: "6px",
-						border: "none",
-					}}
-				/>
-			</div>
-			<div className="d-flex flex-column align-items-center justify-content-center mb-2">
-				<h5>
-					<span> TOKEN: </span> {props.AuthState.token}{" "}
-				</h5>
-			</div>
+
 			<div className="row row-cols-1 row-cols-md-3 mb-3 ms-3 text-center">
 				{categories?.map((category) => {
 					return <Category key={category.id} categoryProp={category} />;
@@ -157,17 +133,8 @@ const Home = (props) => {
 };
 
 const MapStateToPropsFunc = (state) => {
-	console.log("HOME MAP STATE", state);
-	/*	
-STATE DEĞERİ:
-    {
-		AppDataState: OBJECT,
-		AuthState: OBJECT,
-	} */
-
 	return {
-		//...state,
-		AuthState: state.AuthState,
+		...state,
 	};
 };
 

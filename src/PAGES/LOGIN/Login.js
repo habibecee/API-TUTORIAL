@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import useApi from "../../HOOKS/UseApi";
+import { connect } from "react-redux";
+import { SET_TOKEN } from "../../STORE/REDUCERS/AuthReducer/AuthReducer";
 
 const Login = (props) => {
+	console.log(">>> LOGIN PAGE PROPS", props);
+
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const api = useApi();
 
 	const onLoginClick = () => {
-		//alert(`${email} ve ${password}`)
-
 		const postData = {
 			email,
 			password,
@@ -23,6 +25,13 @@ const Login = (props) => {
 
 				if (response.data.status === "success") {
 					localStorage.setItem("token", response.data.data.token);
+
+					const action = {
+						type: SET_TOKEN,
+						payload: { token: response.data.data.token },
+					};
+					props.dispatch(action);
+
 					window.location.href = "/#";
 
 					setTimeout(() => {
@@ -97,4 +106,12 @@ const Login = (props) => {
 	);
 };
 
-export default Login;
+const mapStateToProps = (state) => {
+	console.log(">>> LOGIN MAP STATE", state);
+
+	return {
+		...state,
+	};
+};
+
+export default connect(mapStateToProps)(Login);
