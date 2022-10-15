@@ -5,23 +5,6 @@ import { connect } from "react-redux";
 
 const Header = (props) => {
 	const api = useApi();
-	const [user, setUser] = useState(null);
-
-	useEffect(() => {
-		const token = localStorage.getItem("token");
-
-		if (token) {
-			api
-				.get("user/appData")
-				.then((response) => {
-					console.log(">> APP DATA RESP", response);
-					setUser(response.data.data.user);
-				})
-				.catch((err) => {
-					console.log(">> ERR", err);
-				});
-		}
-	}, []);
 
 	const onClickLogOut = () => {
 		api
@@ -57,10 +40,10 @@ const Header = (props) => {
 					<span className="siteName fs-4">Api Tutorial</span>
 				</a>
 
-				{user ? (
+				{props.AppDataState.AppData ? (
 					<nav className="d-inline-flex mt-2 mt-md-0 ms-md-auto">
 						<strong className="btn btn-primary me-3 py-2">
-							{user.fullname}
+							{props.AppDataState.AppData.user.fullname}
 						</strong>
 						<button
 							className="btn btn-primary me-3 py-2"

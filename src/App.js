@@ -9,27 +9,60 @@ import Register from "./PAGES/REGISTER/Register";
 import useApi from "./HOOKS/UseApi";
 import CategoryDetail from "./PAGES/CATEGORY_DETAIL/CategoryDetail";
 import { connect } from "react-redux";
-import { SET_APP_DATA } from "./STORE/REDUCERS/AppDataReducer/AppDataReducer";
+import {
+	REMOVE_APP_DATA,
+	SET_APP_DATA,
+} from "./STORE/REDUCERS/AppDataReducer/AppDataReducer";
+import { REMOVE_TOKEN } from "./STORE/REDUCERS/AuthReducer/AuthReducer";
 
 function App(props) {
 	const api = useApi();
 
 	if (props.AuthState.token && !props.AppDataState.AppData) {
-		//APP DATA BİLGİSİ ALINACAK
+		/* TOKEN VAR APPDATA YOK İSE APPDATA BİLGİSİNİ APIDEN AL. 
+		   BU ŞART VERİLMEZSE SÜREKLİ APPDATAYA İSTEK ATACAĞINDAN SİSTEM TIKANIR. 
+		   VERİLEN ŞARTIN KENDİNİ TEKRAR ETMEYECEĞİ ŞEKİLDE YA SAYFA YENİLENDİĞİNDE 
+		   VEYA TOKEN SET EDİLDİĞİNDE TEKRAR ÇALIŞACAK ŞEKİLDE AYARLANMALIDIR. */
 		api
 			.get("user/appData")
-			.then((res) => {
-				console.log(" RES APDATA", res);
+			.then((response) => {
+				console.log(" response APDATA", response);
 
 				const action = {
 					type: SET_APP_DATA,
-					payload: res.data.data,
+					payload: {
+						AppData: response.data.data,
+					},
 				};
 
 				props.dispatch(action);
 			})
 			.catch((err) => {
 				console.log("APPDATA ERR", err);
+
+				if (err.response.data.status === "error") {
+					if (err.response.data.exceptionType === "UserNotLoggedInException") {
+						/* LOCAL STORAGEDAKİ TOKEN INVALİD DEMEKTİR. BU SEBEPLE SİLİNMESİ GEREKİR  */
+						localStorage.removeItem("token");
+
+						const action = {
+							type: REMOVE_TOKEN,
+						};
+
+						props.dispatch(action);
+						window.location.href = "/#";
+
+						const ActionAppData = {
+							type: REMOVE_APP_DATA,
+						};
+
+						props.dispatch(ActionAppData);
+					}
+				} else {
+					/* GENEL HATA MESAJLARI YAZILACAK */
+
+					alert("HATA OLUŞTU. LÜTFEN DAHA SONRA TEKRAR DENEYİNİZ!");
+				}
 			});
 	}
 

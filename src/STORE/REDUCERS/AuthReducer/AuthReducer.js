@@ -1,5 +1,7 @@
+const localStorageToken = localStorage.getItem("token");
+
 const initialState = {
-	token: null,
+	token: localStorageToken,
 };
 
 export const SET_TOKEN = "SET_TOKEN";
